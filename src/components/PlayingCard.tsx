@@ -8,7 +8,7 @@ interface PlayingCardProps {
 
 const BackCard = styled.div`
   height: 100%;
-  border-radius: 5px;
+  border-radius: 10px;
   background: linear-gradient(#e66465, #9198e5);
 `;
 
@@ -22,7 +22,7 @@ const PlayingCard: React.FunctionComponent<PlayingCardProps> = ({
         style={{ opacity: facedown ? 0 : 1 }}
         height="100%"
         src={src}
-        alt=""
+        alt="card"
       />
     </BackCard>
   );
