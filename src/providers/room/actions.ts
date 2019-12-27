@@ -86,6 +86,13 @@ export const drawDealerCard = async (
   }
   const dealerHand = [...roomState.dealerHand];
   let score = calculateScore(dealerHand);
+  if (score >= roomState.playerScore) {
+    let gameStatus: GameStatus = "DEALER_WON";
+    dispatch({
+      type: "DRAW_DEALER_CARD",
+      payload: { gameStatus, dealerHand, score }
+    });
+  }
   while (score < roomState.playerScore) {
     const deck = await API.getCardFromDeck(roomState.deckId);
     dealerHand.push(deck.cards[0]);
